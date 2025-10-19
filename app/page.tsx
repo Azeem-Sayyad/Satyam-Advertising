@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import AnimatedWords from "@/components/AnimatedWords";
-// import FadeDown from "@/components/FadeDown";
+import AnimatedWords from "./components/AnimatedWords";
+import FadeDown from "./components/FadeDown";
 
 // Types
 type Service = {
@@ -88,15 +88,12 @@ function StatsSection() {
   return (
     <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
       {stats.map((stat, idx) => (
-        <>
-          {/* <FadeDown key={idx} index={idx} delay={idx * 150}>
+         <FadeDown key={idx} index={idx} delay={idx * 150}>
           <div>
             <div className="text-3xl sm:text-4xl font-bold text-slate-900">{stat.value}</div>
             <div className="text-slate-600 mt-1">{stat.label}</div>
           </div>
-        </FadeDown> */}
-        </>
-      
+        </FadeDown> 
       ))}
     </div>
   );
@@ -132,9 +129,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-8 py-16">
           <div>
             <p className="text-sm font-medium text-amber-500">Outdoor Advertising • Hoardings • LED • Printing</p>
-            {/* <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
               <AnimatedWords text="We make your brand impossible to miss" />
-            </h1> */}
+            </h1>
             <p className="mt-6 text-slate-700 max-w-xl">
               Premium outdoor placements, full-service design & installation, and targeted local campaigns that get you noticed — fast.
             </p>
@@ -179,19 +176,18 @@ export default function Home() {
         </p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map((s, idx) => (
-            <>
-            </>
-            // <FadeDown key={s.id} index={idx} delay={150}>
-            //   <article className="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
-            //     <div className="flex items-start gap-4">
-            //       <div className="p-2 rounded-md bg-amber-50 text-amber-500">{s.icon}</div>
-            //       <div>
-            //         <h3 className="font-semibold">{s.title}</h3>
-            //         <p className="mt-2 text-sm text-slate-600">{s.desc}</p>
-            //       </div>
-            //     </div>
-            //   </article>
-            // </FadeDown>
+          
+            <FadeDown key={s.id} index={idx} delay={150}>
+              <article className="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
+                <div className="flex items-start gap-4">
+                  <div className="p-2 rounded-md bg-amber-50 text-amber-500">{s.icon}</div>
+                  <div>
+                    <h3 className="font-semibold">{s.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{s.desc}</p>
+                  </div>
+                </div>
+              </article>
+            </FadeDown>
           ))}
         </div>
       </section>
@@ -208,7 +204,7 @@ export default function Home() {
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PROJECTS.map((p, idx) => (
             <>
-             {/* <FadeDown key={p.id} index={idx} delay={150}>
+             <FadeDown key={p.id} index={idx} delay={150}>
               <figure className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
                 <div className="relative w-full h-48">
                   <Image
@@ -224,7 +220,7 @@ export default function Home() {
                   <div className="text-sm text-slate-600">{p.location}</div>
                 </figcaption>
               </figure>
-            </FadeDown> */}
+            </FadeDown>
             </>
            
           ))}
@@ -236,13 +232,12 @@ export default function Home() {
         <h2 className="text-2xl font-semibold mb-4">What clients say</h2>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {TESTIMONIALS.map((t, idx) => (
-            <></>
-            // <FadeDown key={t.id} index={idx} delay={200}>
-            //   <blockquote className="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
-            //     <p className="text-slate-700">“{t.quote}”</p>
-            //     <footer className="mt-4 text-sm text-slate-600">— {t.name}{t.company ? `, ${t.company}` : ""}</footer>
-            //   </blockquote>
-            // </FadeDown>
+            <FadeDown key={t.id} index={idx} delay={200}>
+              <blockquote className="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
+                <p className="text-slate-700">“{t.quote}”</p>
+                <footer className="mt-4 text-sm text-slate-600">— {t.name}{t.company ? `, ${t.company}` : ""}</footer>
+              </blockquote>
+            </FadeDown>
           ))}
         </div>
       </section>
