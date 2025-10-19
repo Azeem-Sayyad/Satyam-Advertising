@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&display=swap');
 @import "tailwindcss";
 
+/* Define root variables */
 :root {
-  --background: #ffffff;
+  --background: #F2F2F2;
   --foreground: #171717;
 }
 
+/* Theme variables (inline theme) */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,15 +15,20 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #F2F2F2;
     --foreground: #ededed;
   }
 }
-
+/* #1b1e22 */
+/* Apply global styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Albert Sans", Helvetica, sans-serif;
+}
+html {
+  scroll-behavior:smooth;
 }
