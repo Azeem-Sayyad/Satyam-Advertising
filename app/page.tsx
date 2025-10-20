@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimatedWords from "./components/AnimatedWords";
 import FadeDown from "./components/FadeDown";
-
+import CountUp from "./components/CountUp";
 // Types
 type Service = {
   id: string;
@@ -152,10 +152,10 @@ const TESTIMONIALS: Testimonial[] = [
 // Stats Section
 function StatsSection() {
   const stats = [
-    { value: "10+", label: "Years Experience" },
-    { value: "200+", label: "Campaigns Done" },
-    { value: "50+", label: "City Locations" },
-    { value: "24/7", label: "Support" },
+    { value: 10, suffix: "+", label: "Years Experience" },
+    { value: 200, suffix: "+", label: "Campaigns Done" },
+    { value: 50, suffix: "+", label: "City Locations" },
+    { value: 24, suffix: "/7", label: "Support" },
   ];
 
   return (
@@ -164,7 +164,8 @@ function StatsSection() {
         <FadeDown key={idx} index={idx} delay={idx * 150}>
           <div>
             <div className="text-3xl sm:text-4xl font-bold text-slate-900">
-              {stat.value}
+              <CountUp target={stat.value} />
+              {stat.suffix}
             </div>
             <div className="text-slate-600 mt-1">{stat.label}</div>
           </div>
@@ -173,6 +174,8 @@ function StatsSection() {
     </div>
   );
 }
+
+
 
 // Main Page
 export default function Home() {
