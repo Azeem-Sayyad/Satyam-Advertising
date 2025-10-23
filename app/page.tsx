@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimatedWords from "./components/AnimatedWords";
 import FadeDown from "./components/FadeDown";
+import CountUp from "./components/CountUp";
 
 // Types
 type Service = {
@@ -152,10 +153,10 @@ const TESTIMONIALS: Testimonial[] = [
 // Stats Section
 function StatsSection() {
   const stats = [
-    { value: "10+", label: "Years Experience" },
-    { value: "200+", label: "Campaigns Done" },
-    { value: "50+", label: "City Locations" },
-    { value: "24/7", label: "Support" },
+    { value: 10, suffix: "+", label: "Years Experience" },
+    { value: 200, suffix: "+", label: "Campaigns Done" },
+    { value: 50, suffix: "+", label: "City Locations" },
+    { value: 24, suffix: "/7", label: "Support" },
   ];
 
   return (
@@ -164,7 +165,8 @@ function StatsSection() {
         <FadeDown key={idx} index={idx} delay={idx * 150}>
           <div>
             <div className="text-3xl sm:text-4xl font-bold text-slate-900">
-              {stat.value}
+              <CountUp target={stat.value} />
+              {stat.suffix}
             </div>
             <div className="text-slate-600 mt-1">{stat.label}</div>
           </div>
@@ -182,7 +184,13 @@ export default function Home() {
       <header className="bg-white shadow-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <img src="/favicon.ico" alt="logo" width={50} height={50} />
+            <Image
+              src="/favicon.ico"
+              alt="logo"
+              width={50}
+              height={50}
+              priority
+            />
             <span className="font-semibold">Satyam Advertising</span>
           </Link>
           <nav className="hidden md:flex gap-6 items-center text-sm">
@@ -246,6 +254,7 @@ export default function Home() {
                 height={800}
                 alt="Hoarding in a busy city"
                 className="object-cover w-full h-80 sm:h-96 md:h-full"
+                priority
               />
             </div>
           </div>
@@ -293,25 +302,23 @@ export default function Home() {
         </div>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PROJECTS.map((p, idx) => (
-            <>
-              <FadeDown key={p.id} index={idx} delay={150}>
-                <figure className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
-                  <div className="relative w-full h-48">
-                    <Image
-                      src={p.img}
-                      alt={p.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 25vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="p-4">
-                    <div className="font-semibold">{p.title}</div>
-                    <div className="text-sm text-slate-600">{p.location}</div>
-                  </figcaption>
-                </figure>
-              </FadeDown>
-            </>
+            <FadeDown key={p.id} index={idx} delay={150}>
+              <figure className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow hover:-translate-y-1">
+                <div className="relative w-full h-48">
+                  <Image
+                    src={p.img}
+                    alt={p.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="p-4">
+                  <div className="font-semibold">{p.title}</div>
+                  <div className="text-sm text-slate-600">{p.location}</div>
+                </figcaption>
+              </figure>
+            </FadeDown>
           ))}
         </div>
       </section>
@@ -342,7 +349,7 @@ export default function Home() {
               Ready to launch your campaign?
             </h3>
             <p className="mt-2 text-slate-700">
-              Tell us your goals and we'll propose prime locations and creative
+              Tell us your goals and We will propose prime locations and creative
               options.
             </p>
           </div>
@@ -367,7 +374,13 @@ export default function Home() {
       <footer className="bg-white border-t py-8">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="flex items-center gap-3">
-            <img src="/favicon.ico" alt="logo" width={70} height={70} />
+            <Image
+              src="/favicon.ico"
+              alt="logo"
+              width={70}
+              height={70}
+              priority
+            />
             <div>
               <div className="font-semibold">Satyam Advertising</div>
               <div className="text-sm text-slate-600">
